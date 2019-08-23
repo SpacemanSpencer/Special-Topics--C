@@ -1,0 +1,9 @@
+Spencers-MacBook-Pro:~ SpencerStair$ ./envScript.sh
+Welcome to COSC2347 C executing on host Spencers-MacBook-Pro.local running darwin14.
+Your user id is SpencerStair in home directory /Users/SpencerStair.
+Your system is executing version 3.2.57(1)-release.
+Your current path is /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin, present working directory /Users/SpencerStair.
+Your previous working directory was .
+The process ID of the interpreter (or script) 29413 
+After a 2 second nap, you have been running 2 seconds.
+Spencers-MacBook-Pro:~ SpencerStair$

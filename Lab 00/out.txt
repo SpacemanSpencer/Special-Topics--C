@@ -1,0 +1,31 @@
+C option
+Value of the Rectangle's Length: 5.327330 
+Value of the Rectangle's Width: 6.887590 
+The value for the Rectangle's Area is: 36.692 
+The value for the Rectangle's Perimeter is: 24.430 
+
+Value of the Rectangle's Length: 10.000000 
+Value of the Rectangle's Width: 5.347863 
+The value for the Rectangle's Area is: 53.479 
+The value for the Rectangle's Perimeter is: 30.696 
+
+
+B option
+Value of the Triangle's Base: 345.897856 
+Value of the Triangle's Height: 623.133780 
+The value for the Triangle's Area is: 107770.319 
+
+Value of the Triangle's Base: 75436.352100 
+Value of the Triangle's Height: 2314.100000 
+The value for the Triangle's Area is: 87283631.197 
+
+
+A option
+Value of the Circle's Radius: 897.789001 
+Using defined pi, The value for the Circle's Area is: 2532289.000 
+Using math library pi, The value for the Circle's Area is: 2532202.500 
+
+Value of the Circle's Radius: 949.099976 
+Using defined pi, The value for the Circle's Area is: 2830014.250 
+Using math library pi, The value for the Circle's Area is: 2829917.750 
+

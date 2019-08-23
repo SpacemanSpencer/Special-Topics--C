@@ -1,0 +1,110 @@
+/*
+Author : Spencer Stair
+Date : 3/10 - 3/18
+“D” Option (best grade is 65):
+Convert the Microsoft version of the application in the class notes to GNU/Linux standard “C”  with page breaks and department control breaks.
+“C” Option (best grade is a 79):
+Solve the “D” Option, the modules “New Page,” Calculate Gross,” and “Calculate FICA” must be implemented as subprograms. A script must be used to produce (compile and link) the executable. 
+“B” Option (best grade is 89);
+Implement the “C” option but build the application using the “make” utility. Modules should only be re-compiled when necessary (chain rules).
+“A” Option (best grade is 100);
+Grades in excess of 89 will be based on proper use of naming conventions, indentation, documentation, program clarity, and other software system attributes
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "headerFile.h"
+
+int main(){
+
+	int ID, nRec = 0, PK = 0, LK = 0, MaxLines = 5;
+	char Given[16]; 
+	char Surname[16];
+	char Dept[16];
+	char Prev[16] = { 'n', 'u', 'l', 'l'}; 
+	float FICAlimit, tRate, ytd = 0, newYTD = 0, pRate = 0, hours = 0, gross = 0, FICA = 0, Net = 0, Pgross = 0, Pfica = 0, Pnet = 0, Dgross = 0, Dfica = 0, Dnet = 0, Rgross = 0, Rfica = 0, Rnet = 0;
+
+	FILE *inFile;
+	char fileInName[21] = { 'i', 'n', 'p', 'u', 't', '0', '2', '.', 't', 'x', 't'};
+	FILE *outFile;
+	char fileOutName[21] = { 'o', 'u', 't', 'p', 'u', 't', '0', '2', '.', 't', 'x', 't'};
+
+	FILE *inFileFICA;
+	char fileInFICA[21] = { 'F','I','C', 'A','i', 'n', 'p', 'u', 't', '.', 't', 'x', 't'};
+
+	inFile = fopen(fileInName, "r");
+	if(inFile == NULL){
+		printf("Input file does not exist! Terminating!\n");
+		exit(1);
+	}
+
+	outFile = fopen(fileOutName, "w");
+	if(outFile == NULL){
+		printf("Could not create report! Terminating!\n");
+		exit(1);
+	}
+
+	inFileFICA = fopen(fileInFICA, "r");
+	if(inFileFICA == NULL){
+		printf("FICA Input file does not exist! Terminating!\n");
+		exit(1);
+	}
+	fscanf(inFileFICA, "%f", &FICAlimit);
+	fscanf(inFileFICA, "%f", &tRate);
+
+	for(int i = 17; i > 0; i--){
+		//scan in employee info
+		fscanf(inFile, "%d", &ID);
+		fscanf(inFile, "%s", Surname);
+		fscanf(inFile, "%s", Given);
+		strcpy(Prev, Dept);
+		fscanf(inFile, "%s", Dept);
+		fscanf(inFile, "%f", &ytd);
+		fscanf(inFile, "%f", &pRate);
+		fscanf(inFile, "%f", &hours);
+
+		//Dept break
+		if( (strcmp(Dept, Prev) != 0 &&  i < 15) || (i == 1) ){
+			fprintf(outFile, "\t\t\tDept Totals:\t\t\t%8.2lf\t%8.2lf\t%8.2lf\n\n", Dgross, Dfica, Dnet);
+			Dgross = 0;
+			Dfica = 0;
+			Dnet = 0;
+		}
+
+		NewPage(LK, MaxLines, Pgross, Pfica, Pnet, &PK, ID);
+
+		gross = CalculateGross(pRate, hours);
+		newYTD = gross + ytd;
+
+		FICA = CalculateFICA(ytd, FICAlimit, gross, tRate);
+
+		//Calculate Net
+		Net = gross - FICA;
+
+		//Calculate Dept, Page & Report Totals
+		Dgross += gross;	Dfica += FICA;	Dnet += Net;
+		Pgross += gross;	Pfica += FICA;	Pnet += Net;
+
+
+		//print employee info
+		if(ID != -1){
+			fprintf(outFile, "%-2d\t%-10s\t%-10s\t%-5s\t%8.2lf\t%8.2lf\t%8.2lf\t%8.2lf\n", ID, Given, Surname, Dept, newYTD, gross, FICA, Net);
+			Rgross += gross;	Rfica += FICA;	Rnet += Net;
+			nRec++;
+		}
+		LK++;
+	}
+
+	//Report Summary
+	fprintf(outFile, "\n\t\t\t\t\t\tReport Summary\n\n");
+	fprintf(outFile, "\t\t\tRecords Processed:\t\t\t%d\n", nRec);
+	fprintf(outFile, "\t\t\tTotal Gross:\t\t\t%12.2lf\n\t\t\tTotal FICA:\t\t\t\t%12.2lf\n\t\t\tTotal Net:\t\t\t\t%12.2lf\n", Rgross, Rfica, Rnet);
+	fprintf(outFile, "\t\t\t\t\t\t\t\t\t\t\t\tPage %d", PK);
+
+	//done, close all files
+	fclose(inFile);
+	fclose(inFileFICA);
+	fclose(outFile);
+
+}

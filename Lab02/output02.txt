@@ -1,0 +1,41 @@
+					ACME Sports Inc.
+			"We are the best, you are the best!"
+
+
+Page Totals:						28628.18	  732.01	27896.17
+												  Page 1
+						ACME
+
+ID	Given		Surname	Dept	   YTD	  Gross	   FICA	   Net
+2.90
+24	Mauro     	Darosa    	Acct 	111605.71	 1515.71	    0.71	 1515.00
+13	Ryan      	Deal      	Acct 	 2335.84	  977.50	   69.40	  908.10
+			Dept Totals:			 4494.33	  174.59	 4319.74
+
+5 	Ortiz     	SDiaz     	DP   	110100.00	   10.00	    0.71	    9.29
+			Dept Totals:			   10.00	    0.71	    9.29
+
+3 	Michael   	Dominguez 	Mgt  	680980.69	 7502.40	    0.00	 7502.40
+1 	Marcus    	Duhart    	Mgt  	138574.50	 4340.16	    0.00	 4340.16
+			Dept Totals:			11842.56	    0.00	11842.56
+
+4 	Korbin    	Dunn      	Sales	13269.40	 1924.18	  136.62	 1787.56
+12	Jeramy    	Evans     	Sales	  917.64	  683.08	   48.50	  634.59
+17	Micah     	Friedman  	Sales	 3690.76	 1348.42	   95.74	 1252.69
+7 	Addison   	Gauss     	Sales	68369.20	 1369.20	   97.21	 1271.99
+			Dept Totals:			 5324.89	  378.07	 4946.82
+
+86	Alexander 	Giammaruti	Inven	12875.38	  529.60	   37.60	  492.00
+66	Jeremy    	Harrison  	Inven	114440.27	 4441.52	    7.19	 4434.33
+51	Robert    	Hedreen   	Inven	206700.00	  100.00	    0.00	  100.00
+38	Rahul     	Jaiswar   	Inven	80227.27	 1885.28	  133.85	 1751.42
+			Dept Totals:			 6956.40	  178.64	 6777.75
+
+
+						Report Summary
+
+			Records Processed:			16
+			Total Gross:			    28628.18
+			Total FICA:				      732.01
+			Total Net:				    27896.17
+												Page 2
